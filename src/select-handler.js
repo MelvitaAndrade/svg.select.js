@@ -94,7 +94,6 @@ export class SelectHandler {
   createRotationHandle() {
     const handle = this.selection
       .group()
-      .addClass("selection_handle_rot")
       .on(
         "mousedown.selection touchstart.selection",
         getMoseDownFunc("rot", this.el)
@@ -118,7 +117,6 @@ export class SelectHandler {
   createShearHandle() {
     this.selection
       .rect(20, 5)
-      .addClass("selection_handle_shear")
       .on(
         "mousedown.selection touchstart.selection",
         getMoseDownFunc("shear", this.el)
