@@ -7,7 +7,7 @@ extend(Element, {
    *
    * @param {SelectHandler | Object | boolean} attr
    */
-  selectize: function (attr = true, width, height) {
+  selectize: function (width, height, attr = true) {
     let selectHandler = this.remember("_selectHandler");
 
     if (!selectHandler) {
