@@ -58,9 +58,14 @@ export class SelectHandler {
 
   createSelection() {
     // First transform all points, then draw polygon out of it
-    this.selection.polygon(
-      this.points.slice(0, this.order.indexOf("rot")).map((el) => [el.x, el.y])
-    );
+    this.selection
+      .polygon(
+        this.points
+          .slice(0, this.order.indexOf("rot"))
+          .map((el) => [el.x, el.y])
+      )
+      .fill("none")
+      .stroke({ color: "red", width: 2 });
   }
 
   updateSelection() {
