@@ -1,5 +1,5 @@
 {
-  "name": "svg.select.js",
+  "name": "@svgdotjs/svg.select.js",
   "version": "4.0.0",
   "description": "An extension of svg.js which allows to select elements with mouse",
   "keywords": [
@@ -9,11 +9,12 @@
   ],
   "bugs": "https://github.com/svgdotjs/svg.select.js/issues",
   "license": "MIT",
-  "typings": "./svg.draggable.js.d.ts",
   "author": "Ulrich-Matthias Schäfer",
-  "contributors": {
-    "name": "Ulrich-Matthias Schäfer"
-  },
+  "contributors": [
+    {
+      "name": "Ulrich-Matthias Schäfer"
+    }
+  ],
   "homepage": "https://github.com/svgdotjs/svg.select.js",
   "main": "dist/svg.select.node.js",
   "unpkg": "dist/svg.select.min.js",
@@ -25,6 +26,7 @@
     "/src",
     "/svg.select.js.d.ts"
   ],
+  "typings": "./svg.select.js.d.ts",
   "scripts": {
     "build": "npm run fix && npm run rollup",
     "fix": "npx eslint ./src --fix",
