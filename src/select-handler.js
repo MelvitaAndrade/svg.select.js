@@ -12,8 +12,10 @@ export function getMoseDownFunc(eventName, el) {
 }
 
 export class SelectHandler {
-  constructor(el) {
+  constructor(el, width, height) {
     this.el = el;
+    this.width = width;
+    this.height = height;
     el.remember("_selectHandler", this);
     this.selection = new G();
     this.order = this.getPointNames();
@@ -164,15 +166,15 @@ export class SelectHandler {
     return [
       new Point(x, y),
       new Point(cx, y),
-      new Point(x2, y),
-      new Point(x2, cy),
-      new Point(x2, y2),
-      new Point(cx, y2),
-      new Point(x, y2),
-      new Point(x, cy),
-      new Point(cx, y - 20),
-      new Point(x2 - 20, y - 5),
-      new Point(x2, y - 5),
+      //  new Point(x2, y),
+      //   new Point(x2, cy),
+      //   new Point(x2, y2),
+      //   new Point(cx, y2),
+      //   new Point(x, y2),
+      //   new Point(x, cy),
+      //   new Point(cx, y - 20),
+      //   new Point(x2 - 20, y - 5),
+      //   new Point(x2, y - 5),
     ];
   }
 

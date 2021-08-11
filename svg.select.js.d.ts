@@ -30,9 +30,13 @@ declare module "@svgdotjs/svg.js" {
   interface Element {
     selectize(): this;
 
-    selectize(enable: boolean): this;
-    selectize(options: selectionOptions): this;
-    selectize(handler: SelectHandler): this;
-    selectize(attr?: SelectHandler | selectionOptions | boolean): this;
+    selectize(enable: boolean, width: number, height: number): this;
+    selectize(options: selectionOptions, width: number, height: number): this;
+    selectize(handler: SelectHandler, width: number, height: number): this;
+    selectize(
+      attr?: SelectHandler | selectionOptions | boolean,
+      width: number,
+      height: number
+    ): this;
   }
 }
