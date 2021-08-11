@@ -28,15 +28,15 @@ interface selectionOptions {
 declare module "@svgdotjs/svg.js" {
   class SelectHandler {}
   interface Element {
-    selectize(): this;
+    selectize(width: number, height: number): this;
 
-    selectize(enable: boolean, width: number, height: number): this;
-    selectize(options: selectionOptions, width: number, height: number): this;
-    selectize(handler: SelectHandler, width: number, height: number): this;
+    selectize(width: number, height: number, enable: boolean): this;
+    selectize(width: number, height: number, options: selectionOptions): this;
+    selectize(width: number, height: number, handler: SelectHandler): this;
     selectize(
-      attr?: SelectHandler | selectionOptions | boolean,
       width: number,
-      height: number
+      height: number,
+      attr?: SelectHandler | selectionOptions | boolean
     ): this;
   }
 }

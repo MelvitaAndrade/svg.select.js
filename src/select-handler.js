@@ -164,17 +164,17 @@ export class SelectHandler {
 
     // A collection of all the points we need to draw our ui
     return [
-      new Point(x, y),
-      new Point(cx, y),
-      //  new Point(x2, y),
-      //   new Point(x2, cy),
-      //   new Point(x2, y2),
-      //   new Point(cx, y2),
-      //   new Point(x, y2),
-      //   new Point(x, cy),
-      //   new Point(cx, y - 20),
-      //   new Point(x2 - 20, y - 5),
-      //   new Point(x2, y - 5),
+      new Point(x, y2 - this.height),
+      new Point(cx, y2 - this.height),
+      new Point(x2, y2 - this.height),
+      new Point(x2, y2 - this.height / 2),
+      new Point(x2, y2),
+      new Point(cx, y2),
+      new Point(x, y2),
+      new Point(x, y2 - this.height / 2),
+      new Point(cx, y2 - this.height - 20),
+      new Point(x2 - 20, y2 - this.height - 5),
+      new Point(x2, y2 - this.height - 5),
     ];
   }
 
