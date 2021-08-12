@@ -1,5 +1,5 @@
-import { Element, extend } from "@svgdotjs/svg.js";
-import { SelectHandler } from "./select-handler";
+import { Element, extend } from '@svgdotjs/svg.js'
+import { SelectHandler } from './select-handler'
 
 extend(Element, {
   /**
@@ -8,24 +8,24 @@ extend(Element, {
    * @param {SelectHandler | Object | boolean} attr
    */
   selectize: function (width, height, attr = true) {
-    let selectHandler = this.remember("_selectHandler");
+    let selectHandler = this.remember('_selectHandler')
 
     if (!selectHandler) {
       if (attr.prototype instanceof SelectHandler) {
         /* eslint new-cap: ["error", { "newIsCap": false }] */
-        selectHandler = new attr(this);
-        attr = true;
+        selectHandler = new attr(this)
+        attr = true
       } else {
-        selectHandler = new SelectHandler(this, width, height);
+        selectHandler = new SelectHandler(this, width, height)
       }
 
-      this.remember("_selectHandler", selectHandler);
+      this.remember('_selectHandler', selectHandler)
     }
 
-    selectHandler.active(attr);
+    selectHandler.active(attr)
 
-    return this;
-  },
-});
+    return this
+  }
+})
 
-export default SelectHandler;
+export default SelectHandler
