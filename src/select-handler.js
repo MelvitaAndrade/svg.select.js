@@ -1,6 +1,6 @@
 import { G, Point } from "@svgdotjs/svg.js";
 
-export function getMoseDownFunc(eventName, el) {
+export function getMoseDownFunc (eventName, el) {
   return function (ev) {
     ev.preventDefault();
     ev.stopPropagation();
@@ -12,7 +12,7 @@ export function getMoseDownFunc(eventName, el) {
 }
 
 export class SelectHandler {
-  constructor(el, width, height) {
+  constructor (el, width, height) {
     this.el = el;
     this.width = width;
     this.height = height;
@@ -25,7 +25,7 @@ export class SelectHandler {
     this.observer = new window.MutationObserver(this.mutationHandler);
   }
 
-  init() {
+  init () {
     this.mountSelection();
     this.updatePoints();
     this.createSelection();
@@ -38,11 +38,11 @@ export class SelectHandler {
     this.observer.observe(this.el.node, { attributes: true });
   }
 
-  getPointNames() {
+  getPointNames () {
     return ["lt", "t", "rt", "r", "rb", "b", "lb", "l", "rot", "shear"];
   }
 
-  active(val) {
+  active (val) {
     // Disable selection
     if (!val) {
       this.selection.clear().remove();
@@ -54,11 +54,11 @@ export class SelectHandler {
     this.init();
   }
 
-  mountSelection() {
+  mountSelection () {
     this.el.root().put(this.selection);
   }
 
-  createSelection() {
+  createSelection () {
     // First transform all points, then draw polygon out of it
     this.selection
       .polygon(
@@ -70,7 +70,7 @@ export class SelectHandler {
       .stroke({ color: "red", width: 4 });
   }
 
-  updateSelection() {
+  updateSelection () {
     this.selection
       .get(0)
       .plot(
@@ -80,7 +80,7 @@ export class SelectHandler {
       );
   }
 
-  createResizeHandles() {
+  createResizeHandles () {
     this.points.slice(0, this.order.indexOf("rot")).forEach((p, index) => {
       this.selection
         .circle(10)
@@ -92,13 +92,13 @@ export class SelectHandler {
     });
   }
 
-  updateResizeHandles() {
+  updateResizeHandles () {
     this.points.slice(0, this.order.indexOf("rot")).forEach((p, index) => {
       this.selection.get(index + 1).center(p.x, p.y);
     });
   }
 
-  createRotationHandle() {
+  createRotationHandle () {
     const handle = this.selection
       .group()
       .on(
@@ -110,7 +110,7 @@ export class SelectHandler {
     handle.circle(5);
   }
 
-  updateRotationHandle() {
+  updateRotationHandle () {
     const index = this.order.indexOf("rot");
     const topPoint = this.points[this.order.indexOf("t")];
     const rotPoint = this.points[index];
@@ -121,7 +121,7 @@ export class SelectHandler {
     group.get(1).center(rotPoint.x, rotPoint.y);
   }
 
-  createShearHandle() {
+  createShearHandle () {
     this.selection
       .rect(20, 5)
       .on(
@@ -130,7 +130,7 @@ export class SelectHandler {
       );
   }
 
-  updateShearHandle() {
+  updateShearHandle () {
     const index = this.order.indexOf("shear");
     const shearPoint = this.points[index];
     const shearPoint2 = this.points[index + 1];
@@ -142,7 +142,7 @@ export class SelectHandler {
       .rotate(this.el.transform("rotate"), shearPoint2.x, shearPoint2.y);
   }
 
-  updatePoints() {
+  updatePoints () {
     // Transform elements bounding box into correct space
     const parent = this.selection.parent();
 
@@ -159,7 +159,7 @@ export class SelectHandler {
     );
   }
 
-  getPoints() {
+  getPoints () {
     const { x, y2 } = this.el.bbox();
     const x2 = x + this.width;
     const cx = x + this.width / 2;
@@ -178,11 +178,11 @@ export class SelectHandler {
       new Point(x, cy),
       new Point(cx, y - 20),
       new Point(x2 - 20, y - 5),
-      new Point(x2, y - 5),
+      new Point(x2, y - 5)
     ];
   }
 
-  mutationHandler() {
+  mutationHandler () {
     this.updatePoints();
 
     this.updateSelection();

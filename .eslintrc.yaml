@@ -5,3 +5,4 @@ rules:
   indent: [error, 2, { flatTernaryExpressions: true }]
   padded-blocks: off
   semi: 0
+  quotes: off
